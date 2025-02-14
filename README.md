@@ -42,6 +42,3 @@ To save your installed extensions:
 ```sh
 code --list-extensions > ~/dotfiles/vscode/extensions.txt
 ```
-
-## License
-MIT License. Feel free to modify and use this setup!
