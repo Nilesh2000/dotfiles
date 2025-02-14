@@ -81,4 +81,3 @@ fi
 # Step 9: Restart Zsh session
 echo "🎉 Setup complete! Starting a new Zsh session..."
 exec zsh
-
