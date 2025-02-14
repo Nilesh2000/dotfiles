@@ -1,27 +1,78 @@
-You are an expert software engineer. You wish to setup dotfiles.
-You want the following tracked on your dotfiles
-- brew - taps, apps and casks
-- git - configurations
-- vim - configurations
-- vscode - settings, keybindings, extensions
-- iterm - all my iterm configs
-- zsh - zsh configurations
-- fonts - install fonts you wish
+# Dotfiles Setup
 
-you use topical organization.
-you use gnu stow.
-you should one single install.sh that must setup everything from start to end for you.
-the script must be idempotent by nature.
-if I change anything on my local computer, that should automatically reflext on my dotfiles, so i can push them to remote easily.
-script should be verbose and emit lots of logs. the user must be at all times informed of what is going on.
+## Overview
+This repository contains the configuration files (dotfiles) for setting up a macOS development environment. It includes settings for Zsh, Oh My Zsh, Git, VSCode, and Homebrew, making system setup seamless and reproducible.
 
+## Features
+- **Zsh & Oh My Zsh**
+  - Custom `.zshrc` and `.zsh_aliases` with aliases and environment settings
+  - `zsh-autosuggestions` and `zsh-syntax-highlighting` plugins
+- **Git Configuration**
+  - `.gitconfig` for global settings
+- **VSCode Configuration**
+  - `settings.json` and `keybindings.json`
+  - Automatic installation of extensions
+- **Homebrew Package Management**
+  - `Brewfile` to install CLI tools and apps
+- **Automated Setup Script**
+  - `install.sh` for easy installation on a new system
 
-start with the basics
-ask for a sudo password at the beginning if required. do not ask it ever again then
-install xcode-select --install
-sudo xcodebuild -license accept
-then proceed with installing brew and setting up other stuff
-provide a step by step detailed guide
-add a readme.md
-keep the installation and the rest of the code as simple as possible
-follow best practices
+## Installation
+### 1. Clone the repository
+```sh
+cd ~
+git clone https://github.com/Nilesh2000/dotfiles.git
+cd dotfiles
+```
+
+### 2. Make the installation script executable
+```sh
+chmod +x install.sh
+```
+
+### 3. Run the setup script
+```sh
+./install.sh
+```
+
+This script will:
+- Install **Xcode Command Line Tools**
+- Install **Homebrew** and packages from `Brewfile`
+- Install **Oh My Zsh** and necessary plugins
+- Symlink dotfiles using **stow**
+- Restore **VSCode settings and extensions**
+- Start a new **Zsh session**
+
+## Managing Dotfiles
+To apply changes manually:
+```sh
+stow --target=$HOME zsh
+stow --target=$HOME git
+stow --target=$HOME vscode
+```
+
+To remove symlinks:
+```sh
+stow -D zsh
+stow -D git
+stow -D vscode
+```
+
+## Updating Brewfile
+To update the list of installed Homebrew packages:
+```sh
+brew bundle dump --file=~/dotfiles/brew/Brewfile --force
+```
+
+## Updating VSCode Extensions
+To save your installed extensions:
+```sh
+code --list-extensions > ~/dotfiles/vscode/extensions.txt
+```
+
+## Notes
+- Ensure you have `stow` installed via Homebrew (`brew install stow`).
+- Modify `.zshrc` or `Brewfile` as needed to customize your environment.
+
+## License
+MIT License. Feel free to modify and use this setup!
