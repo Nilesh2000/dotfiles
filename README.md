@@ -1,7 +1,7 @@
-# Dotfiles Setup
+# Dotfiles
 
 ## Overview
-This repository contains the configuration files (dotfiles) for setting up a macOS development environment. It includes settings for Zsh, Oh My Zsh, Git, VSCode, and Homebrew, making system setup seamless and reproducible.
+This repository contains the configuration files (dotfiles) for setting up my macOS development environment. It includes settings for Zsh, Oh My Zsh, Git, VSCode, and Homebrew, making system setup seamless and reproducible.
 
 ## Features
 - **Zsh & Oh My Zsh**
@@ -18,21 +18,9 @@ This repository contains the configuration files (dotfiles) for setting up a mac
   - `install.sh` for easy installation on a new system
 
 ## Installation
-### 1. Clone the repository
+Use `curl` to fetch the script and run it:
 ```sh
-cd ~
-git clone https://github.com/Nilesh2000/dotfiles.git
-cd dotfiles
-```
-
-### 2. Make the installation script executable
-```sh
-chmod +x install.sh
-```
-
-### 3. Run the setup script
-```sh
-./install.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Nilesh2000/dotfiles/main/install.sh)"
 ```
 
 This script will:
@@ -43,25 +31,10 @@ This script will:
 - Restore **VSCode settings and extensions**
 - Start a new **Zsh session**
 
-## Managing Dotfiles
-To apply changes manually:
-```sh
-stow --target=$HOME zsh
-stow --target=$HOME git
-stow --target=$HOME vscode
-```
-
-To remove symlinks:
-```sh
-stow -D zsh
-stow -D git
-stow -D vscode
-```
-
 ## Updating Brewfile
 To update the list of installed Homebrew packages:
 ```sh
-brew bundle dump --file=~/dotfiles/brew/Brewfile --force
+brew bundle dump --file=~/dotfiles/brew/Brewfile --force --describe
 ```
 
 ## Updating VSCode Extensions
@@ -69,10 +42,6 @@ To save your installed extensions:
 ```sh
 code --list-extensions > ~/dotfiles/vscode/extensions.txt
 ```
-
-## Notes
-- Ensure you have `stow` installed via Homebrew (`brew install stow`).
-- Modify `.zshrc` or `Brewfile` as needed to customize your environment.
 
 ## License
 MIT License. Feel free to modify and use this setup!
