@@ -12,6 +12,8 @@ This repository contains the configuration files (dotfiles) for setting up my ma
 - **VSCode Configuration**
   - `settings.json` and `keybindings.json`
   - Automatic installation of extensions
+- **Vim Configuration**
+  - Vim dotfiles management
 - **Homebrew Package Management**
   - `Brewfile` to install CLI tools and apps
 - **Automated Setup Script**
@@ -26,10 +28,10 @@ Use `curl` to fetch the script and run it:
 This script will:
 - Install **Xcode Command Line Tools**
 - Install **Homebrew** and packages from `Brewfile`
-- Install **Oh My Zsh** and necessary plugins
-- Symlink dotfiles using **stow**
+- Install `oh-my-zsh` and necessary plugins
+- Symlink dotfiles using `stow`
 - Restore **VSCode settings and extensions**
-- Start a new **Zsh session**
+- Start a new **ZSH session**
 
 ## Updating Brewfile
 To update the list of installed Homebrew packages:
