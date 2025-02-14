@@ -146,7 +146,21 @@ else
 fi
 echo ""
 
-# Step 9: Restore VSCode extensions
+# Step 9: Symlink iTerm2 settings
+echo ""
+echo "🖥️ Setting up iTerm2 preferences..."
+echo "----------------------------------------------"
+
+if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
+    echo "🔄 Symlinking iTerm2 preferences..."
+    stow --target=$HOME/Library/Preferences iterm2
+    echo "✅ iTerm2 preferences applied."
+else
+    echo "⚠️ No iTerm2 preferences found in dotfiles. Skipping."
+fi
+echo ""
+
+# Step 10: Restore VSCode extensions
 echo ""
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
@@ -158,7 +172,7 @@ else
 fi
 echo ""
 
-# Step 10: Restart Zsh session
+# Step 11: Restart Zsh session
 echo ""
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
