@@ -1,0 +1,95 @@
+# General
+alias c="clear"
+alias cat="bat"
+alias ls="eza"
+alias ag="alias | grep "
+alias h="history"
+alias hg="history | grep "
+alias path='echo -e ${PATH//:/\\n}'
+alias mv="mv -v"
+alias cp="cp -v"
+
+# Python
+alias i="ipython"
+alias python="python3"
+
+# Configuration Files
+alias aliases="vi ~/.zsh_aliases"
+alias gitc="vi ~/.gitconfig"
+alias vimc="vi ~/.vimrc"
+alias zshrc="vi ~/.zshrc"
+
+# Directory Navigation
+alias dl="cd ~/Downloads"
+alias dotfiles="cd ~/dotfiles"
+alias dt="cd ~/Desktop"
+alias ohmyzsh="cd ~/.oh-my-zsh"
+alias sshdir="cd ~/.ssh"
+
+# Git Aliases
+alias ga="git add"
+alias gap="git add -p"
+alias gb="git branch"
+alias gbd="git branch -D"
+alias gbv="git branch -v"
+alias gca="git commit --amend"
+alias gcane="git commit --amend --no-edit"
+alias gcb="git checkout -b"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
+alias gd="git diff"
+alias gds="git diff --staged --word-diff"
+alias gl="git pull"
+alias glc="git local-commits" # List of commits on your local that haven't been pushed to remote
+alias glo="git log --oneline"
+alias glog="git log --stat"
+alias glp="git log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'"
+alias gp="git push"
+alias gr="git reset"
+alias grhh="git reset --hard HEAD"
+alias grv="git remote -v"
+alias gs="git status"
+alias gsl="git shortlog"
+alias gss="git status -s"
+alias gst="git stash"
+alias gste="git stash-everything" # Stash everything inclding untracked files
+alias gu="git reset HEAD^" # Undo the most recent commit but keep the changes in working directory
+
+alias ghpr="git push && gh pr create --web -a @me"
+
+# Kubectx and Kubens
+alias kctx="kubectx"
+alias kns="kubens"
+
+# Kubernetes
+alias kubectl="kubecolor"
+alias krrd="kubectl rollout restart deployment"
+alias krrss="kubectl rollout restart statefulset"
+
+# Safe Delete
+alias rm="trash"
+
+# Docker Aliases
+alias d="docker"
+alias dcls="docker container ls"
+alias dils="docker image ls"
+
+# Docker Compose
+alias dcupd="docker compose up -d"
+alias dcdn="docker compose down"
+
+# Create and change to directory
+mkcd() {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# Copies the contents of the file(s) to the clipboard
+catc() {
+  cat "$@" | pbcopy
+}
+
+# Base64 Decode
+b64d() {
+  echo -n "$1" | base64 --decode
+}
