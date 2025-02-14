@@ -66,9 +66,11 @@ fi
 # Step 7: Clone dotfiles and use Stow to symlink configs
 echo "🔗 Symlinking dotfiles using stow..."
 cd "$HOME/dotfiles"
-stow --target=$HOME zsh
+stow --target=$HOME brew
 stow --target=$HOME git
+stow --target=$HOME vim
 stow --target=$HOME vscode
+stow --target=$HOME zsh
 
 # Step 8: Restore VSCode extensions
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
