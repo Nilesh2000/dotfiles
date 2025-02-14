@@ -131,7 +131,22 @@ stow --target=$HOME zsh
 echo "✅ zsh stowed."
 echo ""
 
-# Step 8: Restore VSCode extensions
+# Step 8: Install Fonts
+echo ""
+echo "🔤 Installing fonts..."
+echo "----------------------------------------------"
+FONT_DIR="$HOME/Library/Fonts"
+
+if [ -d "$HOME/dotfiles/fonts" ]; then
+    echo "🔄 Copying fonts to $FONT_DIR..."
+    cp -r ~/dotfiles/fonts/* "$FONT_DIR/"
+    echo "✅ Fonts installed."
+else
+    echo "⚠️ No fonts directory found in dotfiles. Skipping."
+fi
+echo ""
+
+# Step 9: Restore VSCode extensions
 echo ""
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
@@ -143,7 +158,7 @@ else
 fi
 echo ""
 
-# Step 9: Restart Zsh session
+# Step 10: Restart Zsh session
 echo ""
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
