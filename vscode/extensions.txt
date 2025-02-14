@@ -4,7 +4,6 @@ esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
 golang.go
-hashicorp.terraform
 mikestead.dotenv
 ms-python.debugpy
 ms-python.python
