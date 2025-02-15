@@ -1,0 +1,16 @@
+- [ ] Think about fzf, ripgrep, neovim, zoxide, tmux
+- [ ] Add alt-tab to Brefile
+- [ ] Add MacOS settings
+- [ ] Create one for linux
+- [ ] Make it such that anyone on the internet can set them up
+- [ ] Think about support for SSH (User must be able to set SSH on GH)
+- [ ] Add support for increasing history
+- [ ] ignore simple commands like ls, cd, vim
+- [ ] Figure out what to do about VSCode related stuff when Brewfile is created
+- [ ] Add support for trash-cli via npm
+- [ ] Mention that you backup existing ~/.zshrc while starting installation on README.md
+- [ ] Explore starship prompt
+- [ ] Add more configuration settings for vim
+- [ ] Investigate why path variable is so long at the moment
+- [ ] Cleanup `/.zshrc` if you deem necessary. Remove useless comments
+- [ ] Split aliases, envs, functions into multiple files.
