@@ -75,10 +75,6 @@ echo "🐚 Checking for Oh My Zsh..."
 echo "----------------------------------------------"
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "🔄 Installing Oh My Zsh..."
-    # Save original .zshrc if it exists
-    if [ -f "$HOME/.zshrc" ]; then
-        mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
-    fi
 
     # Install Oh My Zsh without running zsh at the end
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
