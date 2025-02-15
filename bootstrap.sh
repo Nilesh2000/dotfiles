@@ -46,19 +46,7 @@ else
 fi
 echo ""
 
-# Step 4: Install Git
-echo "🔄 Checking for Git..."
-echo "----------------------------------------------"
-if ! command -v git &> /dev/null; then
-    echo "🔄 Installing Git..."
-    brew install git
-    echo "✅ Git installed."
-else
-    echo "✅ Git is already installed."
-fi
-echo ""
-
-# Step 5: Install Stow (for dotfile management)
+# Step 4: Install Stow (for dotfile management)
 echo "🔄 Checking for Stow..."
 echo "----------------------------------------------"
 if ! command -v stow &> /dev/null; then
@@ -70,7 +58,7 @@ else
 fi
 echo ""
 
-# Step 6: Install Oh My Zsh
+# Step 5: Install Oh My Zsh
 echo "🐚 Checking for Oh My Zsh..."
 echo "----------------------------------------------"
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -86,7 +74,7 @@ else
 fi
 echo ""
 
-# Step 7: Clone Dotfiles Repository
+# Step 6: Clone Dotfiles Repository
 echo "📂 Checking for dotfiles repository..."
 echo "----------------------------------------------"
 if [ ! -d "$HOME/dotfiles" ]; then
@@ -98,7 +86,7 @@ else
 fi
 echo ""
 
-# Step 8: Change to dotfiles directory
+# Step 7: Change to dotfiles directory
 echo "📂 Changing into dotfiles directory..."
 cd "$HOME/dotfiles"
 echo "✅ Now inside dotfiles directory."
