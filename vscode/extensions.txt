@@ -1,8 +1,6 @@
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
-golang.go
-mikestead.dotenv
 pkief.material-icon-theme
 ritwickdey.liveserver
 zhuangtongfa.material-theme
