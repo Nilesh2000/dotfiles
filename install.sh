@@ -11,15 +11,34 @@ if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
     echo "✅ Backup created: ~/.zshrc.backup"
 fi
 
-# Step 2: Symlink dotfiles using Stow
-echo "🔗 Symlinking dotfiles..."
+# Step 2: Symlink Home Directory Dotfiles
+echo "🔗 Symlinking home directory dotfiles..."
 echo "----------------------------------------------"
 cd "$HOME/dotfiles"
-stow --target=$HOME brew git vim vscode zsh
-echo "✅ Dotfiles applied."
+stow --target=$HOME git vim zsh
+
+echo "✅ Git, Vim, and Zsh dotfiles applied."
 echo ""
 
-# Step 3: Install Oh My Zsh Plugins
+# Step 3: Symlink Application-Specific Dotfiles
+echo "🔗 Symlinking application-specific dotfiles..."
+echo "----------------------------------------------"
+
+# ✅ VSCode settings
+mkdir -p "$HOME/Library/Application Support/Code/User"
+stow --target="$HOME/Library/Application Support/Code/User" vscode
+
+echo "✅ VSCode settings applied."
+echo ""
+
+# ✅ iTerm2 preferences
+mkdir -p "$HOME/Library/Preferences"
+stow --target="$HOME/Library/Preferences" iterm2
+
+echo "✅ iTerm2 preferences applied."
+echo ""
+
+# Step 4: Install Oh My Zsh Plugins
 echo "🔌 Installing Oh My Zsh plugins..."
 echo "----------------------------------------------"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -39,7 +58,7 @@ else
 fi
 echo ""
 
-# Step 4: Restore VSCode Extensions
+# Step 5: Restore VSCode Extensions
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
@@ -50,23 +69,12 @@ else
 fi
 echo ""
 
-# Step 5: Copy Fonts
-echo "🔤 Copying fonts to ~/Library/Fonts/..."
+# Step 6: Install Fonts
+echo "🔤 Installing fonts..."
 echo "----------------------------------------------"
 mkdir -p "$HOME/Library/Fonts"
 cp -r "$HOME/dotfiles/fonts/"* "$HOME/Library/Fonts/"
 echo "✅ Fonts installed."
-echo ""
-
-# Step 6: Apply iTerm2 Preferences
-echo "🖥️ Applying iTerm2 preferences..."
-echo "----------------------------------------------"
-if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
-    stow --target=$HOME/Library/Preferences iterm2
-    echo "✅ iTerm2 preferences applied."
-else
-    echo "⚠️ No iTerm2 preferences found! Skipping."
-fi
 echo ""
 
 # Step 7: Restart Zsh session
