@@ -9,6 +9,7 @@ if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
     echo "⚠️ Removing default .zshrc created by Oh My Zsh..."
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
     echo "✅ Backup created: ~/.zshrc.backup"
+    echo ""
 fi
 
 # Step 2: Symlink Home Directory Dotfiles
@@ -28,7 +29,6 @@ echo "----------------------------------------------"
 mkdir -p "$HOME/Library/Application Support/Code/User"
 stow --target="$HOME/Library/Application Support/Code/User" --ignore='extensions.txt' vscode
 echo "✅ VSCode settings applied."
-echo ""
 
 # ✅ iTerm2 preferences
 mkdir -p "$HOME/Library/Preferences"
@@ -47,6 +47,7 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
 else
     echo "✅ zsh-autosuggestions already installed."
 fi
+echo ""
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
