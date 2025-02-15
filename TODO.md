@@ -2,7 +2,6 @@
 - [ ] Add alt-tab to Brefile
 - [ ] Add MacOS settings
 - [ ] Create one for linux
-- [ ] Make it such that anyone on the internet can set them up
 - [ ] Think about support for SSH (User must be able to set SSH on GH)
 - [ ] Add support for increasing history
 - [ ] ignore simple commands like ls, cd, vim on history
@@ -13,6 +12,8 @@
 - [ ] Investigate why path variable is so long at the moment
 - [ ] Cleanup `/.zshrc` if you deem necessary. Remove useless comments
 - [ ] Split aliases, envs, functions into multiple files.
+- [ ] Enhance README.md
+- [ ] Write a blog post
 
 Future enhancements such that anyone can set up:-
 - [ ] Backup the current ZSH configuration
