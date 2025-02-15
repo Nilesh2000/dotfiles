@@ -79,6 +79,9 @@ alias dils="docker image ls"
 alias dcupd="docker compose up -d"
 alias dcdn="docker compose down"
 
+# Visual Studio Code
+alias vsc="open -a 'Visual Studio Code'"
+
 # Create and change to directory
 mkcd() {
     mkdir -p -- "$1" && cd -P -- "$1"
