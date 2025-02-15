@@ -39,6 +39,7 @@
   "terminal.integrated.letterSpacing": 0.2,
   // Turn off Telemetry
   "telemetry.telemetryLevel": "off",
+  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.closeOnFileDelete": true,
@@ -52,5 +53,5 @@
     "scminput": false
   },
   "go.testTimeout": "300s",
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
 }
