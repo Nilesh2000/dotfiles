@@ -94,4 +94,10 @@ else
 fi
 echo ""
 
+# Step 8: Change to dotfiles directory
+echo "📂 Changing into dotfiles directory..."
+cd "$HOME/dotfiles"
+echo "✅ Now inside dotfiles directory."
+echo ""
+
 echo "✅ Bootstrap complete! Now run: ./install.sh"
