@@ -42,7 +42,7 @@ This repository contains the dotfiles for setting up my macOS development enviro
 ### **Step 1: Bootstrap the System**
 Use `curl` to fetch the script and run it:
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Nilesh2000/dotfiles/main/bootstrap.sh)"
+source <(curl -fsSL https://raw.githubusercontent.com/Nilesh2000/dotfiles/main/bootstrap.sh)
 ```
 This script will:
 - Install **Xcode Command Line Tools**
