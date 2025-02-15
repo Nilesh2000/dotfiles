@@ -37,8 +37,6 @@ brew "kubectx"
 brew "libyaml"
 # Run a Kubernetes cluster locally
 brew "minikube"
-# Platform built on V8 to build network applications
-brew "node"
 # Object-relational database system
 brew "postgresql@14"
 # Persistent key-value database, with built-in net interface
@@ -51,8 +49,6 @@ brew "tree"
 brew "universal-ctags"
 # Vi 'workalike' with many additional features
 brew "vim"
-# JavaScript package manager
-brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Kubernetes CLI To Manage Your Clusters In Style!
@@ -63,8 +59,6 @@ cask "chatgpt"
 cask "docker"
 # Web browser
 cask "google-chrome"
-# IDE for Java development - community edition
-cask "intellij-idea-ce"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Clipboard manager
@@ -73,10 +67,6 @@ cask "maccy"
 cask "notion"
 # Collaboration platform for API development
 cask "postman"
-# GUI for streamlined Redis application development
-cask "redis-insight"
-# Team communication and collaboration software
-cask "slack"
 # To-do list
 cask "todoist"
 # Menu bar pomodoro timer
@@ -87,5 +77,4 @@ cask "visual-studio-code"
 cask "vlc"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Video communication and virtual meeting platform
-cask "zoom"
+
