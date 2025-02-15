@@ -9,8 +9,18 @@ echo "🔗 Symlinking home directory dotfiles..."
 echo "----------------------------------------------"
 cd "$HOME/dotfiles"
 stow --target=$HOME git vim zsh
-
 echo "✅ Git, Vim, and Zsh dotfiles applied."
+echo ""
+
+# Step 2: Install Brew Packages
+echo "📦 Installing packages from Brewfile..."
+echo "----------------------------------------------"
+if [ -f "$HOME/dotfiles/brew/Brewfile" ]; then
+    brew bundle --file="$HOME/dotfiles/brew/Brewfile"
+    echo "✅ Brewfile packages installed."
+else
+    echo "⚠️ No Brewfile found! Skipping package installation."
+fi
 echo ""
 
 # Step 2: Symlink Application-Specific Dotfiles (Excluding extensions.txt)
