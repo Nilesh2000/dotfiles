@@ -26,6 +26,12 @@ This repository contains the dotfiles for setting up my macOS development enviro
   - Syntax highlighting and line numbers
 - **Homebrew Package Management**
   - `Brewfile` to install CLI tools and apps
+- **iTerm2 Configuration**
+  - Custom preferences stored in `com.googlecode.iterm2.plist`
+  - Auto-symlinked via `stow`
+- **Fonts Management**
+  - Custom fonts stored in `dotfiles/fonts/`
+  - Automatically copied to `~/Library/Fonts/` during setup
 - **Automated Setup Script**
   - `install.sh` for easy installation on a new system
   - Idempotent installation (safe to run multiple times)
@@ -42,6 +48,8 @@ This script will:
 - Install `oh-my-zsh` and necessary plugins
 - Symlink dotfiles using `stow`
 - Restore **VSCode settings and extensions**
+- Apply **iTerm2 preferences**
+- Copy **custom fonts to `~/Library/Fonts/`**
 - Start a new **ZSH session**
 
 ## Maintainenance
@@ -57,5 +65,20 @@ To save your installed extensions:
 code --list-extensions > ~/dotfiles/vscode/extensions.txt
 ```
 
+### Managing Fonts
+To update or install new fonts:
+1. Add new font files (`.ttf`, `.otf`) to `~/dotfiles/fonts/`
+2. Run:
+   ```sh
+   cp -r ~/dotfiles/fonts/* ~/Library/Fonts/
+   ```
+
+### Managing iTerm2 Preferences
+To sync iTerm2 settings across machines:
+```sh
+stow --target=$HOME/Library/Preferences iterm2
+```
+
 ## Contributing
 Feel free to fork this repository and customize it for your needs. Pull requests for improvements are welcome!
+
