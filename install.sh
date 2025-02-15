@@ -23,7 +23,7 @@ else
 fi
 echo ""
 
-# Step 2: Symlink Application-Specific Dotfiles (Excluding extensions.txt)
+# Step 3: Symlink Application-Specific Dotfiles (Excluding extensions.txt)
 echo "🔗 Symlinking application-specific dotfiles..."
 echo "----------------------------------------------"
 
@@ -38,7 +38,7 @@ stow --target="$HOME/Library/Preferences" iterm2
 echo "✅ iTerm2 preferences applied."
 echo ""
 
-# Step 3: Install Oh My Zsh Plugins
+# Step 4: Install Oh My Zsh Plugins
 echo "🔌 Installing Oh My Zsh plugins..."
 echo "----------------------------------------------"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -59,7 +59,7 @@ else
 fi
 echo ""
 
-# Step 4: Restore VSCode Extensions
+# Step 5: Restore VSCode Extensions
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
@@ -70,7 +70,7 @@ else
 fi
 echo ""
 
-# Step 5: Install Fonts
+# Step 6: Install Fonts
 echo "🔤 Installing fonts..."
 echo "----------------------------------------------"
 mkdir -p "$HOME/Library/Fonts"
@@ -78,7 +78,7 @@ cp -r "$HOME/dotfiles/fonts/"* "$HOME/Library/Fonts/"
 echo "✅ Fonts installed."
 echo ""
 
-# Step 6: Restart Zsh session
+# Step 7: Restart Zsh session
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
 exec zsh
