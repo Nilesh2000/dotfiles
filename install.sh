@@ -4,7 +4,14 @@ set -e  # Exit on error
 echo "🚀 Installing dotfiles and configuring macOS..."
 echo "----------------------------------------------"
 
-# Step 1: Symlink dotfiles using Stow
+# Step 1: Remove the default .zshrc if it exists
+if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+    echo "⚠️ Removing default .zshrc created by Oh My Zsh..."
+    mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
+    echo "✅ Backup created: ~/.zshrc.backup"
+fi
+
+# Step 2: Symlink dotfiles using Stow
 echo "🔗 Symlinking dotfiles..."
 echo "----------------------------------------------"
 cd "$HOME/dotfiles"
@@ -12,7 +19,7 @@ stow --target=$HOME brew git vim vscode zsh
 echo "✅ Dotfiles applied."
 echo ""
 
-# Step 2: Install Oh My Zsh Plugins
+# Step 3: Install Oh My Zsh Plugins
 echo "🔌 Installing Oh My Zsh plugins..."
 echo "----------------------------------------------"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -32,7 +39,7 @@ else
 fi
 echo ""
 
-# Step 3: Restore VSCode Extensions
+# Step 4: Restore VSCode Extensions
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
@@ -43,7 +50,7 @@ else
 fi
 echo ""
 
-# Step 4: Copy Fonts
+# Step 5: Copy Fonts
 echo "🔤 Copying fonts to ~/Library/Fonts/..."
 echo "----------------------------------------------"
 mkdir -p "$HOME/Library/Fonts"
@@ -51,7 +58,7 @@ cp -r "$HOME/dotfiles/fonts/"* "$HOME/Library/Fonts/"
 echo "✅ Fonts installed."
 echo ""
 
-# Step 5: Apply iTerm2 Preferences
+# Step 6: Apply iTerm2 Preferences
 echo "🖥️ Applying iTerm2 preferences..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
@@ -62,7 +69,7 @@ else
 fi
 echo ""
 
-# Step 6: Restart Zsh session
+# Step 7: Restart Zsh session
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
 exec zsh
