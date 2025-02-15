@@ -100,7 +100,29 @@ else
 fi
 echo ""
 
-# Step 7: Clone dotfiles and use Stow to symlink configs
+# Step 7: Ensure dotfiles repository is present
+echo ""
+echo "📂 Checking for dotfiles repository..."
+echo "----------------------------------------------"
+
+if [ ! -d "$HOME/dotfiles" ]; then
+    echo "❌ Dotfiles repository not found!"
+    echo "🔄 Cloning dotfiles repository..."
+
+    git clone https://github.com/Nilesh2000/dotfiles.git "$HOME/dotfiles"
+
+    if [ $? -eq 0 ]; then
+        echo "✅ Dotfiles repository cloned successfully."
+    else
+        echo "❌ Failed to clone dotfiles repository. Check your internet connection."
+        exit 1
+    fi
+else
+    echo "✅ Dotfiles repository already exists."
+fi
+echo ""
+
+# Step 8: Clone dotfiles and use Stow to symlink configs
 echo ""
 echo "🔗 Symlinking dotfiles using stow..."
 echo "----------------------------------------------"
@@ -131,7 +153,7 @@ stow --target=$HOME zsh
 echo "✅ zsh stowed."
 echo ""
 
-# Step 8: Symlink iTerm2 settings
+# Step 9: Symlink iTerm2 settings
 echo ""
 echo "🖥️ Setting up iTerm2 preferences..."
 echo "----------------------------------------------"
@@ -145,7 +167,7 @@ else
 fi
 echo ""
 
-# Step 9: Install Fonts
+# Step 10: Install Fonts
 echo ""
 echo "🔤 Installing fonts..."
 echo "----------------------------------------------"
@@ -160,7 +182,7 @@ else
 fi
 echo ""
 
-# Step 10: Restore VSCode extensions
+# Step 11: Restore VSCode extensions
 echo ""
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
@@ -172,7 +194,7 @@ else
 fi
 echo ""
 
-# Step 11: Restart Zsh session
+# Step 12: Restart Zsh session
 echo ""
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
