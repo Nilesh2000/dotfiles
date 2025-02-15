@@ -78,6 +78,8 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 
     # Install Oh My Zsh without running zsh at the end
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # Remove the .zshrc created by Oh My Zsh
+    rm -f "$HOME/.zshrc"
     echo "✅ Oh My Zsh installed."
 else
     echo "✅ Oh My Zsh is already installed."
