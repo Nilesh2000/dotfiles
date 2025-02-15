@@ -87,7 +87,7 @@ echo "📂 Checking for dotfiles repository..."
 echo "----------------------------------------------"
 if [ ! -d "$HOME/dotfiles" ]; then
     echo "🔄 Cloning dotfiles repository..."
-    git clone https://github.com/Nilesh2000/dotfiles.git "$HOME/dotfiles"
+    git clone git@github.com:Nilesh2000/dotfiles.git "$HOME/dotfiles"
     echo "✅ Dotfiles repository cloned."
 else
     echo "✅ Dotfiles repository already exists."
