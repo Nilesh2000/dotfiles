@@ -4,7 +4,7 @@ set -e  # Exit on error
 echo "🚀 Installing dotfiles and configuring macOS..."
 echo "----------------------------------------------"
 
-# Step 1: Remove the default .zshrc if it exists
+# Step 1: Remove default .zshrc if created by Oh My Zsh
 if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
     echo "⚠️ Removing default .zshrc created by Oh My Zsh..."
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
@@ -20,14 +20,13 @@ stow --target=$HOME git vim zsh
 echo "✅ Git, Vim, and Zsh dotfiles applied."
 echo ""
 
-# Step 3: Symlink Application-Specific Dotfiles
+# Step 3: Symlink Application-Specific Dotfiles (Excluding extensions.txt)
 echo "🔗 Symlinking application-specific dotfiles..."
 echo "----------------------------------------------"
 
-# ✅ VSCode settings
+# ✅ VSCode settings (Only settings.json & keybindings.json, NOT extensions.txt)
 mkdir -p "$HOME/Library/Application Support/Code/User"
-stow --target="$HOME/Library/Application Support/Code/User" vscode
-
+stow --target="$HOME/Library/Application Support/Code/User" --ignore='extensions.txt' vscode
 echo "✅ VSCode settings applied."
 echo ""
 
