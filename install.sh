@@ -8,7 +8,7 @@ echo "----------------------------------------------"
 echo "🔗 Symlinking dotfiles..."
 echo "----------------------------------------------"
 cd "$HOME/dotfiles"
-stow --target=$HOME git vim vscode zsh iterm2 fonts
+stow --target=$HOME brew git vim vscode zsh
 echo "✅ Dotfiles applied."
 echo ""
 
