@@ -5,12 +5,14 @@
 - [ ] Make it such that anyone on the internet can set them up
 - [ ] Think about support for SSH (User must be able to set SSH on GH)
 - [ ] Add support for increasing history
-- [ ] ignore simple commands like ls, cd, vim
+- [ ] ignore simple commands like ls, cd, vim on history
 - [ ] Figure out what to do about VSCode related stuff when Brewfile is created
-- [ ] Add support for trash-cli via npm
-- [ ] Mention that you backup existing ~/.zshrc while starting installation on README.md
+- [ ] Add support for trash-cli / opencommit via npm
 - [ ] Explore starship prompt
 - [ ] Add more configuration settings for vim
 - [ ] Investigate why path variable is so long at the moment
 - [ ] Cleanup `/.zshrc` if you deem necessary. Remove useless comments
 - [ ] Split aliases, envs, functions into multiple files.
+
+Future enhancements such that anyone can set up:-
+- [ ] Backup the current ZSH configuration
