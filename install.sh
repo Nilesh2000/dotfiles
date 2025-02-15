@@ -1,98 +1,30 @@
 #!/bin/bash
-
 set -e  # Exit on error
 
-echo ""
-echo "🚀 Setting up your macOS system with dotfiles..."
+echo "🚀 Installing dotfiles and configuring macOS..."
 echo "----------------------------------------------"
-echo ""
 
-# Step 1: Ask for sudo password once
-echo ""
-echo "🔑 Requesting sudo access..."
+# Step 1: Symlink dotfiles using Stow
+echo "🔗 Symlinking dotfiles..."
 echo "----------------------------------------------"
-if ! sudo -v; then
-    echo "❌ Failed to get sudo access. Exiting."
-    exit 1
-fi
-echo "✅ Sudo access granted."
+cd "$HOME/dotfiles"
+stow --target=$HOME git vim vscode zsh iterm2 fonts
+echo "✅ Dotfiles applied."
 echo ""
 
-# Keep sudo alive during the script execution
-while true; do sudo -n true; sleep 60; done 2>/dev/null &
-
-# Step 2: Install Xcode Command Line Tools
-echo ""
-echo "🛠 Checking for Xcode Command Line Tools..."
-echo "----------------------------------------------"
-if ! xcode-select --print-path &>/dev/null; then
-    echo "🔄 Installing Xcode Command Line Tools..."
-    sudo xcode-select --install
-    # Wait until installation is complete
-    until xcode-select --print-path &>/dev/null; do sleep 5; done
-    echo "✅ Xcode Command Line Tools installed."
-else
-    echo "✅ Xcode Command Line Tools already installed."
-fi
-echo ""
-
-# Step 3: Install Homebrew (if missing)
-echo ""
-echo "🍺 Checking for Homebrew..."
-echo "----------------------------------------------"
-if ! command -v brew &> /dev/null; then
-    echo "🔄 Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    echo "✅ Homebrew installed."
-else
-    echo "✅ Homebrew is already installed."
-fi
-echo ""
-
-# Step 4: Install dependencies via Brewfile
-echo ""
-echo "📦 Installing packages from Brewfile..."
-echo "----------------------------------------------"
-if [ -f "$HOME/dotfiles/brew/Brewfile" ]; then
-    brew bundle --file="$HOME/dotfiles/brew/Brewfile"
-    echo "✅ Brewfile packages installed."
-else
-    echo "⚠️ No Brewfile found! Skipping package installation."
-fi
-echo ""
-
-# Step 5: Install Zsh & Oh My Zsh (if missing)
-echo ""
-echo "🐚 Checking for Oh My Zsh..."
-echo "----------------------------------------------"
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "🔄 Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-    echo "✅ Oh My Zsh installed."
-else
-    echo "✅ Oh My Zsh is already installed."
-fi
-echo ""
-
-# Step 6: Install Oh My Zsh plugins
-echo ""
+# Step 2: Install Oh My Zsh Plugins
 echo "🔌 Installing Oh My Zsh plugins..."
 echo "----------------------------------------------"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    echo "🔄 Installing zsh-autosuggestions..."
     git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
     echo "✅ zsh-autosuggestions installed."
 else
     echo "✅ zsh-autosuggestions already installed."
 fi
-echo ""
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    echo "🔄 Installing zsh-syntax-highlighting..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
     echo "✅ zsh-syntax-highlighting installed."
 else
@@ -100,102 +32,37 @@ else
 fi
 echo ""
 
-# Step 7: Ensure dotfiles repository is present
-echo ""
-echo "📂 Checking for dotfiles repository..."
-echo "----------------------------------------------"
-
-if [ ! -d "$HOME/dotfiles" ]; then
-    echo "❌ Dotfiles repository not found!"
-    echo "🔄 Cloning dotfiles repository..."
-
-    git clone https://github.com/Nilesh2000/dotfiles.git "$HOME/dotfiles"
-
-    if [ $? -eq 0 ]; then
-        echo "✅ Dotfiles repository cloned successfully."
-    else
-        echo "❌ Failed to clone dotfiles repository. Check your internet connection."
-        exit 1
-    fi
-else
-    echo "✅ Dotfiles repository already exists."
-fi
-echo ""
-
-# Step 8: Clone dotfiles and use Stow to symlink configs
-echo ""
-echo "🔗 Symlinking dotfiles using stow..."
-echo "----------------------------------------------"
-cd "$HOME/dotfiles"
-
-echo "🔄 Stowing brew..."
-stow --target=$HOME brew
-echo "✅ brew stowed."
-echo ""
-
-echo "🔄 Stowing git..."
-stow --target=$HOME git
-echo "✅ git stowed."
-echo ""
-
-echo "🔄 Stowing vim..."
-stow --target=$HOME vim
-echo "✅ vim stowed."
-echo ""
-
-echo "🔄 Stowing vscode..."
-stow --target=$HOME vscode
-echo "✅ vscode stowed."
-echo ""
-
-echo "🔄 Stowing zsh..."
-stow --target=$HOME zsh
-echo "✅ zsh stowed."
-echo ""
-
-# Step 9: Symlink iTerm2 settings
-echo ""
-echo "🖥️ Setting up iTerm2 preferences..."
-echo "----------------------------------------------"
-
-if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
-    echo "🔄 Symlinking iTerm2 preferences..."
-    stow --target=$HOME/Library/Preferences iterm2
-    echo "✅ iTerm2 preferences applied."
-else
-    echo "⚠️ No iTerm2 preferences found in dotfiles. Skipping."
-fi
-echo ""
-
-# Step 10: Install Fonts
-echo ""
-echo "🔤 Installing fonts..."
-echo "----------------------------------------------"
-FONT_DIR="$HOME/Library/Fonts"
-
-if [ -d "$HOME/dotfiles/fonts" ]; then
-    echo "🔄 Copying fonts to $FONT_DIR..."
-    cp -r ~/dotfiles/fonts/* "$FONT_DIR/"
-    echo "✅ Fonts installed."
-else
-    echo "⚠️ No fonts directory found in dotfiles. Skipping."
-fi
-echo ""
-
-# Step 11: Restore VSCode extensions
-echo ""
+# Step 3: Restore VSCode Extensions
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
     cat "$HOME/dotfiles/vscode/extensions.txt" | xargs -L 1 code --install-extension
     echo "✅ VSCode extensions installed."
 else
-    echo "⚠️ No VSCode extensions file found! Skipping extension installation."
+    echo "⚠️ No VSCode extensions file found! Skipping."
 fi
 echo ""
 
-# Step 12: Restart Zsh session
+# Step 4: Copy Fonts
+echo "🔤 Copying fonts to ~/Library/Fonts/..."
+echo "----------------------------------------------"
+mkdir -p "$HOME/Library/Fonts"
+cp -r "$HOME/dotfiles/fonts/"* "$HOME/Library/Fonts/"
+echo "✅ Fonts installed."
 echo ""
+
+# Step 5: Apply iTerm2 Preferences
+echo "🖥️ Applying iTerm2 preferences..."
+echo "----------------------------------------------"
+if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
+    stow --target=$HOME/Library/Preferences iterm2
+    echo "✅ iTerm2 preferences applied."
+else
+    echo "⚠️ No iTerm2 preferences found! Skipping."
+fi
+echo ""
+
+# Step 6: Restart Zsh session
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
 exec zsh
