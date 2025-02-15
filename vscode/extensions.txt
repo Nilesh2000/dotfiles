@@ -1,6 +1,7 @@
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
+mikestead.dotenv
 pkief.material-icon-theme
 ritwickdey.liveserver
 zhuangtongfa.material-theme
