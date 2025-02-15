@@ -33,7 +33,6 @@ echo ""
 # ✅ iTerm2 preferences
 mkdir -p "$HOME/Library/Preferences"
 stow --target="$HOME/Library/Preferences" iterm2
-
 echo "✅ iTerm2 preferences applied."
 echo ""
 
