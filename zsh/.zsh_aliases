@@ -14,10 +14,10 @@ alias i="ipython"
 alias python="python3"
 
 # Configuration Files
-alias aliases="vi ~/.zsh_aliases"
-alias gitc="vi ~/.gitconfig"
-alias vimc="vi ~/.vimrc"
-alias zshrc="vi ~/.zshrc"
+alias aliases="vi ~/dotfiles/zsh/.zsh_aliases"
+alias gitc="vi ~/dotfiles/git/.gitconfig"
+alias vimc="vi ~/dotfiles/vim/.vimrc"
+alias zshrc="vi ~/dotfiles/zsh/.zshrc"
 
 # Directory Navigation
 alias dl="cd ~/Downloads"
