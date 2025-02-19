@@ -1,7 +1,7 @@
 # General
 alias c="clear"
-alias cat="bat"
-alias ls="eza"
+command -v bat > /dev/null 2>&1 && alias cat="bat"
+command -v eza > /dev/null 2>&1 && alias ls="eza"
 alias ag="alias | grep "
 alias h="history"
 alias hg="history | grep "
@@ -62,13 +62,13 @@ alias ghpr="git push && gh pr create --web -a @me"
 alias kctx="kubectx"
 alias kns="kubens"
 
-# Kubernetes
-alias kubectl="kubecolor"
+# Kubernetes (Prefer kubecolor over kubectl if available)
+command -v kubecolor > /dev/null 2>&1 && alias kubectl="kubecolor"
 alias krrd="kubectl rollout restart deployment"
 alias krrss="kubectl rollout restart statefulset"
 
-# Safe Delete
-alias rm="trash"
+# Safe Delete (Use trash-cli if available)
+command -v trash > /dev/null 2>&1 && alias rm="trash"
 
 # Docker Aliases
 alias d="docker"
