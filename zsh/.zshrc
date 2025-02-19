@@ -1,63 +1,71 @@
-# If you come from bash you might have to change your $PATH.
+# If you come from Bash, you might need to adjust your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your Oh My Zsh installation.
+# Path to Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load
+# Set the theme
 ZSH_THEME="robbyrussell"
 
-# Set list of themes to pick from when loading at random
+# Set a list of themes to pick from randomly
 # ZSH_THEME_RANDOM_CANDIDATES=("robbyrussell" "agnoster")
 
-# Uncomment to use case-sensitive completion.
+# Uncomment to enable case-sensitive completion
 # CASE_SENSITIVE="true"
 
-# Uncomment to use hyphen-insensitive completion.
+# Uncomment to enable hyphen-insensitive completion
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled
-# zstyle ':omz:update' mode auto
-# zstyle ':omz:update' mode reminder
+# Auto-update behavior
+# Uncomment one of the following lines to configure it:
+# zstyle ':omz:update' mode disabled  # Disable updates
+# zstyle ':omz:update' mode auto      # Auto-update
+# zstyle ':omz:update' mode reminder  # Show reminder
 
-# Uncomment to change how often to auto-update (in days).
+# Uncomment to change how often to auto-update (in days)
 # zstyle ':omz:update' frequency 13
 
-# Uncomment if pasting URLs and other text is messed up.
+# Uncomment if pasting URLs and other text is messed up
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment to disable colors in ls.
+# Uncomment to disable colors in `ls`
 # DISABLE_LS_COLORS="true"
 
-# Uncomment to disable auto-setting terminal title.
+# Uncomment to disable auto-setting terminal title
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment to enable command auto-correction.
+# Uncomment to enable command auto-correction
 # ENABLE_CORRECTION="true"
 
-# Uncomment to display red dots whilst waiting for completion.
+# Uncomment to display red dots while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment to disable marking untracked files under VCS as dirty.
+# Uncomment to disable marking untracked files under VCS as dirty
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment to change the command execution timestamp format.
+# Uncomment to change the command execution timestamp format
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Set custom folder for Oh My Zsh.
+# Set custom folder for Oh My Zsh
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Load plugins.
-plugins=(kubectl kube-ps1 zsh-autosuggestions zsh-syntax-highlighting)
+# Load plugins
+plugins=(
+    kubectl
+    kube-ps1
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+# Configure right prompt to show Kubernetes context
 RPROMPT='$(kube_ps1)'
+
+# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
+# Uncomment to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -72,29 +80,30 @@ source $ZSH/oh-my-zsh.sh
 
 # Set personal aliases
 export PATH="$HOME/.bin:$PATH"
+
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
-# History file location
-HISTFILE=~/.zsh_history
+# History configuration
 
-SAVEHIST=10000
-HISTSIZE=50000
+HISTFILE=~/.zsh_history
+HISTSIZE=50000   # Max number of commands in memory
+SAVEHIST=10000   # Max number of commands stored in the history file
 
 # Improve history behavior
-setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate entries, keeping only the latest
-setopt HIST_IGNORE_DUPS       # Prevent consecutive duplicate commands from being stored
+setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate entries
+setopt HIST_IGNORE_DUPS       # Prevent consecutive duplicates
 setopt HIST_SAVE_NO_DUPS      # Don't write duplicate commands to history
-setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history
-setopt HIST_IGNORE_SPACE      # Don't save commands that start with a space
-setopt HIST_REDUCE_BLANKS     # Remove unnecessary whitespace from history entries
-setopt HIST_VERIFY            # Require confirmation before executing history commands
-setopt SHARE_HISTORY          # Share history across multiple terminal sessions
-setopt INC_APPEND_HISTORY     # Immediately append new commands to history file
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first
+setopt HIST_IGNORE_SPACE      # Ignore commands that start with a space
+setopt HIST_REDUCE_BLANKS     # Remove extra whitespace
+setopt HIST_VERIFY            # Require confirmation before execution
+setopt SHARE_HISTORY          # Share history across sessions
+setopt INC_APPEND_HISTORY     # Append history in real-time
 
-# Prevent history file corruption (important for large history)
+# Prevent history file corruption
 setopt EXTENDED_HISTORY  # Save timestamps for each command
-setopt APPEND_HISTORY    # Append history instead of overwriting it
-setopt HIST_NO_STORE     # Prevent 'history' command itself from being stored
+setopt APPEND_HISTORY    # Append instead of overwriting history
+setopt HIST_NO_STORE     # Prevent 'history' command from being stored
 
