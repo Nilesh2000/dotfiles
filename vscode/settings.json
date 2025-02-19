@@ -1,6 +1,7 @@
 {
   // Disable breadcrumbs
   "breadcrumbs.enabled": false,
+
   // Editor Settings
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -15,12 +16,15 @@
   "editor.smoothScrolling": true,
   "editor.wordBasedSuggestions": "off",
   "editor.wordWrap": "on",
+
   // Explorer Settings
   "explorer.confirmDelete": false,
+
   // Extension Settings
   "extensions.autoCheckUpdates": true,
   "extensions.autoUpdate": true,
   "extensions.ignoreRecommendations": true,
+
   // File Settings
   "files.autoSave": "afterDelay",
   "files.exclude": {
@@ -30,6 +34,7 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+
   // Integerated Terminal Settings
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
@@ -37,8 +42,11 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.letterSpacing": 0.2,
+
   // Turn off Telemetry
   "telemetry.telemetryLevel": "off",
+
+  // Workbench Settings
   "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.iconTheme": "material-icon-theme",
@@ -46,6 +54,7 @@
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
+
   "git.openRepositoryInParentFolders": "never",
   "github.copilot.enable": {
     "*": true,
