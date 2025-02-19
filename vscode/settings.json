@@ -63,4 +63,8 @@
   },
   "go.testTimeout": "300s",
   "go.toolsManagement.autoUpdate": true,
+
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }
