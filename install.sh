@@ -4,7 +4,7 @@ set -e  # Exit on error
 echo "🚀 Installing dotfiles and configuring macOS..."
 echo "----------------------------------------------"
 
-# Step 1: Symlink Home Directory Dotfiles
+# Symlink Home Directory Dotfiles
 echo "🔗 Symlinking home directory dotfiles..."
 echo "----------------------------------------------"
 cd "$HOME/dotfiles"
@@ -12,7 +12,7 @@ stow --target=$HOME git vim zsh
 echo "✅ Git, Vim, and Zsh dotfiles applied."
 echo ""
 
-# Step 2: Install Brew Packages
+# Install Brew Packages
 echo "📦 Installing packages from Brewfile..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/brew/Brewfile" ]; then
@@ -23,7 +23,7 @@ else
 fi
 echo ""
 
-# Step 3: Symlink Application-Specific Dotfiles (Excluding extensions.txt)
+# Symlink Application-Specific Dotfiles (Excluding extensions.txt)
 echo "🔗 Symlinking application-specific dotfiles..."
 echo "----------------------------------------------"
 
@@ -38,7 +38,7 @@ stow --target="$HOME/Library/Preferences" iterm2
 echo "✅ iTerm2 preferences applied."
 echo ""
 
-# Step 4: Install Oh My Zsh Plugins
+# Install Oh My Zsh Plugins
 echo "🔌 Installing Oh My Zsh plugins..."
 echo "----------------------------------------------"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -59,7 +59,7 @@ else
 fi
 echo ""
 
-# Step 5: Restore VSCode Extensions
+# Restore VSCode Extensions
 echo "🖥️ Installing VSCode extensions..."
 echo "----------------------------------------------"
 if [ -f "$HOME/dotfiles/vscode/extensions.txt" ]; then
@@ -70,7 +70,7 @@ else
 fi
 echo ""
 
-# Step 6: Install Fonts
+# Install Fonts
 echo "🔤 Installing fonts..."
 echo "----------------------------------------------"
 mkdir -p "$HOME/Library/Fonts"
@@ -78,7 +78,7 @@ cp -r "$HOME/dotfiles/fonts/"* "$HOME/Library/Fonts/"
 echo "✅ Fonts installed."
 echo ""
 
-# Step 7: Restart Zsh session
+# Restart Zsh session
 echo "🎉 Setup complete! Restarting Zsh session..."
 echo "----------------------------------------------"
 exec zsh
