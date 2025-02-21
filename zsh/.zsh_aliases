@@ -1,77 +1,100 @@
-# General
+#====================
+# General Aliases
+#====================
 alias c="clear"
-command -v bat > /dev/null 2>&1 && alias cat="bat"
-command -v eza > /dev/null 2>&1 && alias ls="eza"
-alias ag="alias | grep "
 alias h="history"
 alias hg="history | grep "
-alias j="z"
+alias ag="alias | grep "
 alias path='echo -e ${PATH//:/\\n}'
+alias j="z"
+
+# Safe file operations
 alias mv="mv -v"
 alias cp="cp -v"
+command -v trash > /dev/null 2>&1 && alias rm="trash"
 
-# Python
-alias i="ipython"
-alias python="python3"
+# Better alternatives for common commands
+command -v bat > /dev/null 2>&1 && alias cat="bat"
+command -v eza > /dev/null 2>&1 && alias ls="eza"
 
-# Configuration Files
+#====================
+# Directory Navigation
+#====================
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dotfiles="cd ~/dotfiles"
+alias ohmyzsh="cd ~/.oh-my-zsh"
+alias sshdir="cd ~/.ssh"
+
+#====================
+# Config File Shortcuts
+#====================
 alias aliases="vi ~/dotfiles/zsh/.zsh_aliases"
 alias gitc="vi ~/dotfiles/git/.gitconfig"
 alias vimc="vi ~/dotfiles/vim/.vimrc"
 alias zshrc="vi ~/dotfiles/zsh/.zshrc"
 
-# Directory Navigation
-alias dl="cd ~/Downloads"
-alias dotfiles="cd ~/dotfiles"
-alias dt="cd ~/Desktop"
-alias ohmyzsh="cd ~/.oh-my-zsh"
-alias sshdir="cd ~/.ssh"
+#====================
+# Development Tools
+#====================
+# Python
+alias i="ipython"
+alias python="python3"
 
-# Git Aliases
+# Visual Studio Code
+alias vsc="open -a 'Visual Studio Code'"
+
+#====================
+# Git Commands
+#====================
+# Basic operations
 alias ga="git add"
 alias gap="git add -p"
-alias gb="git branch"
-alias gbd="git branch -D"
-alias gbv="git branch -v"
-alias gca="git commit --amend"
-alias gcane="git commit --amend --no-edit"
-alias gcb="git checkout -b"
-alias gcm="git commit -m"
-alias gco="git checkout"
-alias gcp="git cherry-pick"
+alias gs="git status"
+alias gss="git status -s"
 alias gd="git diff"
 alias gds="git diff --staged"
+
+# Branch operations
+alias gb="git branch"
+alias gbv="git branch -v"
+alias gbd="git branch -D"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+
+# Commit operations
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gcane="git commit --amend --no-edit"
+alias gu="git reset HEAD^" # Undo the most recent commit but keep the changes
+
+# Remote operations
 alias gl="git pull"
-alias glc="git local-commits" # List of commits on your local that haven't been pushed to remote
+alias gp="git push"
+alias grv="git remote -v"
+
+# Log and history
 alias glo="git log --oneline"
 alias glog="git log --stat"
 alias glp="git log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'"
-alias gp="git push"
+alias glc="git local-commits" # List of commits on your local that haven't been pushed
+alias gsl="git shortlog"
+
+# Stash operations
+alias gst="git stash"
+alias gste="git stash-everything" # Stash everything including untracked files
+
+# Reset operations
 alias gr="git reset"
 alias grhh="git reset --hard HEAD"
-alias grv="git remote -v"
-alias gs="git status"
-alias gsl="git shortlog"
-alias gss="git status -s"
-alias gst="git stash"
-alias gste="git stash-everything" # Stash everything inclding untracked files
-alias gu="git reset HEAD^" # Undo the most recent commit but keep the changes in working directory
 
+# GitHub specific
 alias ghpr="git push && gh pr create --web -a @me"
 
-# Kubectx and Kubens
-alias kctx="kubectx"
-alias kns="kubens"
-
-# Kubernetes (Prefer kubecolor over kubectl if available)
-command -v kubecolor > /dev/null 2>&1 && alias kubectl="kubecolor"
-alias krrd="kubectl rollout restart deployment"
-alias krrss="kubectl rollout restart statefulset"
-
-# Safe Delete (Use trash-cli if available)
-command -v trash > /dev/null 2>&1 && alias rm="trash"
-
-# Docker Aliases
+#====================
+# Container Operations
+#====================
+# Docker
 alias d="docker"
 alias dcls="docker container ls"
 alias dils="docker image ls"
@@ -80,20 +103,27 @@ alias dils="docker image ls"
 alias dcupd="docker compose up -d"
 alias dcdn="docker compose down"
 
-# Visual Studio Code
-alias vsc="open -a 'Visual Studio Code'"
+# Kubernetes
+command -v kubecolor > /dev/null 2>&1 && alias kubectl="kubecolor"
+alias krrd="kubectl rollout restart deployment"
+alias krrss="kubectl rollout restart statefulset"
+alias kctx="kubectx"
+alias kns="kubens"
 
+#====================
+# Custom Functions
+#====================
 # Create and change to directory
 mkcd() {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-# Copies the contents of the file(s) to the clipboard
+# Copy file contents to clipboard
 catc() {
-  cat "$@" | pbcopy
+    cat "$@" | pbcopy
 }
 
 # Base64 Decode
 b64d() {
-  echo -n "$1" | base64 --decode
+    echo -n "$1" | base64 --decode
 }
