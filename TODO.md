@@ -1,4 +1,4 @@
-- [ ] Think about fzf, ripgrep, neovim, zoxide, tmux, atuin
+- [ ] Think about fzf, ripgrep, neovim, tmux, atuin
 - [ ] Add alt-tab to Brefile
 - [ ] Add MacOS settings
 - [ ] Create one for linux
@@ -12,7 +12,7 @@
 - [ ] Split aliases, envs, functions into multiple files.
 - [ ] Enhance README.md
 - [ ] Improve blog post
-- [ ] Add blog post link to repo on GitHub
+- [ ] Create a separate script for running and dotfiles and setting up aliases on a EC2 box
 
 Future enhancements such that anyone can set up:-
 - [ ] Backup the current ZSH configuration

@@ -63,6 +63,9 @@ RPROMPT='$(kube_ps1)'
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# Initialize zoxide
+eval "$(zoxide init zsh)"
+
 # User configuration
 
 # Uncomment to manually set your language environment
@@ -86,7 +89,6 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 # History configuration
-
 HISTFILE=~/.zsh_history
 HISTSIZE=50000   # Max number of commands in memory
 SAVEHIST=10000   # Max number of commands stored in the history file

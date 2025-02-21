@@ -49,6 +49,8 @@ brew "tree"
 brew "universal-ctags"
 # Vi 'workalike' with many additional features
 brew "vim"
+# A smarter cd command that learns your habits
+brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Kubernetes CLI To Manage Your Clusters In Style!
