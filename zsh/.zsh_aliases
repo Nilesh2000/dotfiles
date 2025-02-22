@@ -22,7 +22,7 @@ command -v eza > /dev/null 2>&1 && alias ls="eza"
 #====================
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias dotfiles="cd ~/dotfiles"
+alias dot="cd ~/dotfiles"
 alias ohmyzsh="cd ~/.oh-my-zsh"
 alias sshdir="cd ~/.ssh"
 
@@ -50,6 +50,7 @@ alias vsc="open -a 'Visual Studio Code'"
 # Basic operations
 alias ga="git add"
 alias gap="git add -p"
+alias gc="git clone"
 alias gs="git status"
 alias gss="git status -s"
 alias gd="git diff"
