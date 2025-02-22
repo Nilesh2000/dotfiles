@@ -9,8 +9,8 @@ alias path='echo -e ${PATH//:/\\n}'
 alias j="z"
 
 # Safe file operations
-alias mv="mv -v"
-alias cp="cp -v"
+alias mv="mv -v"     # verbose mode - print source and destination
+alias cp="cp -v"     # verbose mode - print copied files
 command -v trash > /dev/null 2>&1 && alias rm="trash"
 
 # Better alternatives for common commands
