@@ -3,7 +3,6 @@
 - [ ] Add MacOS settings
 - [ ] Create one for linux
 - [ ] Think about support for SSH (User must be able to set SSH on GH)
-- [ ] ignore simple commands like ls, cd, vim on history
 - [ ] Figure out what to do about VSCode related stuff when Brewfile is created
 - [ ] Add support for trash-cli / opencommit via npm
 - [ ] Explore starship prompt
@@ -16,3 +15,4 @@
 
 Future enhancements such that anyone can set up:-
 - [ ] Backup the current ZSH configuration
+- [ ] Make it like a question answer. you ask their email. fill it up in gitconfig
