@@ -19,11 +19,11 @@ ZSH_THEME="robbyrussell"
 # Auto-update behavior
 # Uncomment one of the following lines to configure it:
 # zstyle ':omz:update' mode disabled  # Disable updates
-# zstyle ':omz:update' mode auto      # Auto-update
+zstyle ':omz:update' mode auto      # Auto-update
 # zstyle ':omz:update' mode reminder  # Show reminder
 
 # Uncomment to change how often to auto-update (in days)
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 14
 
 # Uncomment if pasting URLs and other text is messed up
 # DISABLE_MAGIC_FUNCTIONS="true"
