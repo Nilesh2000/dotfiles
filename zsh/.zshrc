@@ -63,6 +63,9 @@ RPROMPT='$(kube_ps1)'
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# Load fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
