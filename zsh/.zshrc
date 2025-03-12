@@ -51,7 +51,6 @@ zstyle ':omz:update' frequency 14
 
 # Load plugins
 plugins=(
-    kubectl
     kube-ps1
     zsh-autosuggestions
     zsh-syntax-highlighting
