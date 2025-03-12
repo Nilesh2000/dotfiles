@@ -106,6 +106,7 @@ alias dcdn="docker compose down"
 
 # Kubernetes
 command -v kubecolor > /dev/null 2>&1 && alias kubectl="kubecolor"
+alias k="kubectl"
 alias krrd="kubectl rollout restart deployment"
 alias krrss="kubectl rollout restart statefulset"
 alias kctx="kubectx"
