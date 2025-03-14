@@ -48,9 +48,9 @@
 
   // Workbench Settings
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro Night Flat",
   "workbench.editor.closeOnFileDelete": true,
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
