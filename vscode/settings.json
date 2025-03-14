@@ -35,6 +35,15 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
 
+  // Copilot Settings
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": true,
+    "scminput": false
+  },
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+
   // Integerated Terminal Settings
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
@@ -55,12 +64,6 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
 
-  "git.openRepositoryInParentFolders": "never",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "scminput": false
-  },
   "go.testTimeout": "300s",
   "go.toolsManagement.autoUpdate": true,
 
