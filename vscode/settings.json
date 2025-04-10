@@ -72,5 +72,6 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "go.survey.prompt": false
 }
