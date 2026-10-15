@@ -53,7 +53,7 @@ If one install step fails, it warns and carries on, so just run it again later.
 | `git/.gitconfig` | Git settings, with delta for diffs |
 | `iterm2/pure-black.json` | iTerm2 profile: black background, Catppuccin colors, Nerd Font, Cmd/Opt key bindings |
 | `brew/Brewfile` | CLI tools and apps to install |
-| `macos.sh` | Key repeat, screenshots folder, battery percentage, clock with seconds |
+| `macos.sh` | Key repeat, screenshots folder, battery percentage, clock with seconds, Dock auto-hide, no hot corners, Finder extensions/path bar/hidden files, Touch ID for sudo |
 
 ## Changing things later
 
