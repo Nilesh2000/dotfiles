@@ -10,7 +10,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Nilesh2000/dotfiles/main
 
 Then run `gh auth login` (choose SSH) and open a new iTerm2 window.
 
-The repo lives at `~/dotfiles`. Re-running `install.sh` is safe. Existing config files are kept as `<name>.bak.<timestamp>`.
+The repo lives at `~/dotfiles` (cloned over HTTPS; after `gh auth login`, run `git -C ~/dotfiles remote set-url origin git@github.com:Nilesh2000/dotfiles.git` to push over SSH). Apple Silicon only (`/opt/homebrew`). Re-running `install.sh` is safe. Existing config files are kept as `<name>.bak.<timestamp>`.
 
 ## What's in it
 

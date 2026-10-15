@@ -18,7 +18,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 [ -d "$DOT/.git" ] || git clone "$REPO" "$DOT"
 
-brew bundle --no-upgrade --file="$DOT/brew/Brewfile"
+brew bundle --no-upgrade --file="$DOT/brew/Brewfile" || echo "WARNING: some Brewfile items failed; continuing. Re-run install.sh later."
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
