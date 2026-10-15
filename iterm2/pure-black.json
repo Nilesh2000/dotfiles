@@ -225,7 +225,8 @@
         "Alpha Component": 1,
         "Color Space": "sRGB"
       },
-      "Use Separate Colors for Light and Dark Mode": false
+      "Use Separate Colors for Light and Dark Mode": false,
+      "Window Type": 12
     }
   ]
 }
