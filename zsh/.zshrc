@@ -3,7 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
-export GOPATH="$HOME/go"
 export PATH="$HOME/.local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
