@@ -9,5 +9,7 @@ defaults write com.apple.screencapture location ~/Desktop/screenshots
 
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
-killall SystemUIServer || true
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+killall SystemUIServer ControlCenter 2>/dev/null || true
 echo "macOS defaults applied. Log out and back in for key repeat to take effect."
