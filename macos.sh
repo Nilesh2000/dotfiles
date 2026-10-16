@@ -43,6 +43,10 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 defaults write com.apple.screencapture type -string png
 defaults write com.apple.screencapture disable-shadow -bool true
 
+# hide the Spotlight icon in the menu bar (Cmd+Space still works)
+defaults -currentHost write com.apple.controlcenter Spotlight -int 8
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
+
 killall SystemUIServer ControlCenter Dock Finder 2>/dev/null || true
 
 # Touch ID for sudo (asks for your password once)
