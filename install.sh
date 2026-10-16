@@ -53,6 +53,11 @@ defaults write com.googlecode.iterm2 TabStyleWithAutomaticOption -int 5
 defaults write com.googlecode.iterm2 HideTab -bool true
 defaults write com.googlecode.iterm2 HideTabNumber -bool true
 
+# Switch hotkeys: all windows = Option+Tab, current app = Option+`
+defaults write com.sanyamgarg.switch switch.hotkey.allWindows -data 7b226b6579436f6465223a34382c226d6f64696669657273526177223a3532343238387d
+defaults write com.sanyamgarg.switch switch.hotkey.currentApp -data 7b226b6579436f6465223a35302c226d6f64696669657273526177223a3532343238387d
+defaults write com.sanyamgarg.switch switch.hotkey.seeded -bool true
+
 bash "$DOT/macos.sh"
 
 cat <<'MSG'
