@@ -226,7 +226,8 @@
         "Color Space": "sRGB"
       },
       "Use Separate Colors for Light and Dark Mode": false,
-      "Window Type": 1
+      "Window Type": 1,
+      "Cursor Type": 1
     }
   ]
 }
