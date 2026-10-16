@@ -38,7 +38,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 defaults write com.apple.screencapture type -string png
 defaults write com.apple.screencapture disable-shadow -bool true
