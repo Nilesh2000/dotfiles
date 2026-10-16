@@ -56,4 +56,6 @@ cat <<'MSG'
 Done. Manual steps left:
   1. gh auth login            (choose SSH; it can upload a new key)
   2. Open a new iTerm2 window
+  3. Open Switch and allow Accessibility + Screen Recording
+     (System Settings > Privacy & Security; macOS does not let scripts grant these)
 MSG

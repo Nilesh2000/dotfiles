@@ -32,6 +32,7 @@ Apple Silicon Macs only.
    ```
 
 8. Open **Docker Desktop** once to finish its own first-run setup.
+9. Open **Switch** (the Cmd+Tab window switcher) and allow **Accessibility** and **Screen Recording** when macOS asks (System Settings → Privacy & Security). macOS doesn't let a script grant these for you.
 
 That's it. You can re-run the script from step 2 at any time: it is safe to repeat.
 If one install step fails, it warns and carries on, so just run it again later.
