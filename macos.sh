@@ -24,6 +24,23 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf
 
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+for k in Quote Dash Period; do
+  defaults write NSGlobalDomain NSAutomatic${k}SubstitutionEnabled -bool false
+done
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+
+defaults write com.apple.screencapture type -string png
+defaults write com.apple.screencapture disable-shadow -bool true
+
 killall SystemUIServer ControlCenter Dock Finder 2>/dev/null || true
 
 # Touch ID for sudo (asks for your password once)

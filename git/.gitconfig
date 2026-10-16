@@ -13,3 +13,9 @@
 	conflictStyle = zdiff3
 [push]
 	default = current
+[fetch]
+	prune = true
+[branch]
+	sort = -committerdate
+[commit]
+	verbose = true
